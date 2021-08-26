@@ -22,7 +22,7 @@ let package = Package(
         .library(name: "YourApp", targets: ["YourApp"])
     ],
     dependencies: [
-        .package(name: "SwiftyNats", url: "https://github.com/petershaw/swifty-nats.git", from: "2.0.0")
+        .package(url: "https://github.com/raykrow/swifty-nats.git", from: "1.3.1")
     ],
     targets: [
         .target(
@@ -55,6 +55,13 @@ client.subscribe("foo.bar") { message in
 
 client.publish("this event happened", to: "foo.bar")
 
+```
+
+## Logging
+```swift
+
+let client = NatsClient("http://nats.server:4222")
+client.config.loglevel = .debug
 ```
 
 ### TODO
